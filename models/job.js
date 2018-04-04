@@ -15,3 +15,6 @@ const JobSchema = new Schema({
         required: true
     }
 });
+
+const Job = mongoose.model('job', JobSchema)
+module.exports = Job;
