@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const JobSchema = new Schema({
-    name:{
+    title:{
         type: String,
         required: true
     },
@@ -16,5 +16,5 @@ const JobSchema = new Schema({
     }
 });
 
-const Job = mongoose.model('job', JobSchema)
+const Job = mongoose.model('job', JobSchema);
 module.exports = Job;
