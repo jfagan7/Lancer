@@ -13,6 +13,10 @@ const JobSchema = new Schema({
     deadline:{
         type: Date,
         required: true
+    },
+    proposals:{
+        type: Number,
+        
     }
 });
 

@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const path = require('path');
+const config = require('./config/database');
+const router = require('./routes/index');
+const users = require('./routes/users');
 const app = express();
 
 
@@ -17,11 +20,6 @@ db.on('error', (err)=>{
     console.log(err);
 });
 
-//Route files
-let router = require('./routes/index');
-let users = require('./routes/users');
-
-
 //Views
 app.set('views',path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -31,9 +29,12 @@ app.use(bodyParser.urlencoded ({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')))
 
+//Route files
+//
+
 //App routing
 app.use('/', router);
-app.use('/users', users);
+//app.use('/users', users);
 
 
 app.listen(3000, (req, res)=>{
