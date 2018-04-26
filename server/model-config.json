@@ -15,7 +15,7 @@
   },
   "User": {
     "dataSource": "db",
-    "public":"false"
+    "public": "false"
   },
   "AccessToken": {
     "dataSource": "db",
@@ -37,6 +37,10 @@
     "public": false
   },
   "job": {
+    "dataSource": "db",
+    "public": true
+  },
+  "account": {
     "dataSource": "db",
     "public": true
   }
