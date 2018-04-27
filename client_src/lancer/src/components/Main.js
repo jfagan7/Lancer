@@ -1,15 +1,13 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Home from '../views/Home';
-import JobItem from './JobItem';
-import Job from './Job'
+import Job from '../views/Jobs';
 
 const Main = ()=>(
     <main>
         <Switch>
             <Route exact path='/' component = {Home} />
-            <Route exact path='/job-postings' component = {Job}/>
-            <Route exact path='/job-postings/:id' component = {JobItem}/>
+            <Route exact path='/jobs' component = {Job}/>
         </Switch>
     </main>
 )

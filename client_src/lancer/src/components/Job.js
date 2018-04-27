@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import JobPosting from './JobPosting';
 import axios from 'axios';
 
 class Job extends Component {
@@ -23,7 +24,9 @@ class Job extends Component {
     }
     render() {
         const jobItems = this.state.jobs.map((jobs, i)=>{
-            return <li className = "collection-item">{jobs.title}</li>
+            return(
+                <JobPosting key={jobs.id} item={jobs}/>
+            ) //<li className = "collection-item">{jobs.title}</li>
         })
 
         return ( 
