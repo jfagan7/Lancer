@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import JobPosting from './JobPosting';
+import JobPosting from '../components/JobPosting';
 import axios from 'axios';
 
 class Job extends Component {

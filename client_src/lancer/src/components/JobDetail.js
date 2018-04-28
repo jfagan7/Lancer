@@ -1,18 +1,30 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Axios from 'axios';
 
 class JobDetail extends Component{
     constructor(props){
         super(props);
         this.state={
-            item: props.item
+            details: ''
         }
     }
+
+    getJob(){
+        let jobId = this.props.match.params.id; 
+        Axios.get(`http://localhost:3000/api/jobs/${jobId}`)
+        .then(response=>{
+            this.setState({details : response.data})
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+
     render(){
         return(
-            <li className="collection-item">
-               <Link to={`/jobs/${this.state.item.id}`}> {this.state.item.name}</Link>
-            </li>
+            <div>
+                <h1>{this.state.details.name}</h1>
+            </div>
         )
     }
 }
