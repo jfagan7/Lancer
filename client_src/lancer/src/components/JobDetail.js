@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Header from './Header';
 import Axios from 'axios';
 
 class JobDetail extends Component{
@@ -10,11 +11,17 @@ class JobDetail extends Component{
         }
     }
 
+    componentWillMount(){
+        this.getJob();
+    }
+
     getJob(){
         let jobId = this.props.match.params.id; 
         Axios.get(`http://localhost:3000/api/jobs/${jobId}`)
         .then(response=>{
-            this.setState({details : response.data})
+            this.setState({details : response.data}, ()=>{
+                console.log(this.state);
+            })
         }).catch((err)=>{
             console.log(err);
         })
@@ -23,7 +30,7 @@ class JobDetail extends Component{
     render(){
         return(
             <div>
-                <h1>{this.state.details.name}</h1>
+                <h1>{this.state.details.title}</h1>
             </div>
         )
     }

@@ -11,7 +11,9 @@ class JobPosting extends Component{
     render(){
         return(
             <li className="collection-item">
-               <Link to={`/jobs/${this.state.item.id}`}> {this.state.item.name}</Link>
+               <Link to={`/jobs/${this.state.item.id}`}> 
+                    {this.state.item.title}
+               </Link>
             </li>
         )
     }
