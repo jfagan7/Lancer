@@ -5,7 +5,7 @@ class Navbar extends Component {
   render() {
     return ( 
     <div >
-        <nav className="navbar navbar-expand-sm navbar-light bg-light">
+        <nav className="navbar navbar-expand-sm navbar-light bg-dark">
           <a href="/" className="navbar-brand"> Lancer </a>
           <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
             <span className="navbar-toggler-icon"></span>
