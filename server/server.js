@@ -2,6 +2,7 @@
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+const bcrypt = require('bcryptjs');
 
 var app = module.exports = loopback();
 
@@ -26,4 +27,8 @@ boot(app, __dirname, function(err) {
   // start the server if `$ node server.js`
   if (require.main === module)
     app.start();
+});
+
+app.post('/account/login', (req, res)=>{
+
 });
