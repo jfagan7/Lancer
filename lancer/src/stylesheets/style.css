@@ -1,0 +1,48 @@
+body{
+    font: Arial, Helvetica, sans-serif;
+    text-align: center;
+    height: 100%;
+}
+/*Start of Banner*/
+.banner{
+    background-image: url("https://cdn.pixabay.com/photo/2017/01/20/23/14/knight-1996168_960_720.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-height: 900px;
+    min-height: 450px;
+    opacity: 0.75;
+    position: relative;
+}
+
+.banner-text{
+    text-align: center;
+    font-family: sans-serif;
+    color: #ffffff;
+    position: center;
+    padding-top: 100px;
+    
+}
+/*End of Banner*/
+
+
+.infographic{
+    max-height: 400px;
+    width: 100%;
+    left: 75px;
+
+}
+
+.description{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.highlight{
+    padding: 0;
+    margin: 0;
+}
+
+section.highlight:nth-child(even){
+    background-color: rgb(244, 235, 247);
+}

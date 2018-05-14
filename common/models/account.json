@@ -26,8 +26,7 @@
     "skills": {
       "type": [
         "string"
-      ],
-      "required": true
+      ]
     }
   },
   "validations": [],
