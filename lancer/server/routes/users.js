@@ -1,24 +1,36 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcryptjs');
 
-const UserSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName:{
-        type: String,
-        required: true
-    },
-    email:{
-        type: String,
-        required: true,
-        unique: true
-    },
-    password:{
-        type: String,
-        required: true
-    }
+router.post('/register', function(req, res){
+    const User = require('./../models/user');
+
+    let hash = bcrypt.hashSync(req.body.password, 10);
+    let user = new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: hash,
+        skills: req.body.skills
+    });
+        user
+            .save()
+            .then(result=>{
+                    console.log(result);
+                    res.status(201).json({
+                        message: 'User successfully created'
+                    });
+            })
+            .catch(err=>{
+                console.log(err);
+                    res.status(500).json({
+                        error: err
+                    });
+            })
 });
 
-module.exports=mongoose.model('User', UserSchema);
+router.post('/login', function(req, res){
+
+})
+
+module.exports = router;

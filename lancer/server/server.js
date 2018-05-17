@@ -7,7 +7,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/lancer')
+
+mongoose.connect('mongodb://localhost:27017/Lancer')
 .then(()=>{
     console.log('Connected to the MongoDB server');
 })
@@ -24,5 +25,11 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
+
+//Routers for objects within the app
+const userRoutes = require('./routes/users');
+
+//Request handlers
+app.use('/user', userRoutes);
 
 module.exports=app;
